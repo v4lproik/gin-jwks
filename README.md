@@ -1,5 +1,5 @@
-# gin-jwks [![Go Report Card](https://goreportcard.com/badge/github.com/v4lproik/gin-jwks)](https://goreportcard.com/report/github.com/v4lproik/gin-jwks)
-This gin-gonic handler aims at providing a JKMS exposing the public key properties needed in the JWT encryption/decryption workflow using private/public keys.
+# gin-jwks [![Go Report Card](https://goreportcard.com/badge/github.com/v4lproik/gin-jwks)](https://goreportcard.com/report/github.com/v4lproik/gin-jwks) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/v4lproik/gin-jwks/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/v4lproik/gin-jwks/tree/main)
+This gin-gonic handler aims at providing a JKMS exposing the public key properties needed in the JWT encryption/decryption workflow using asymmetric cryptography.
 ## Usage
 ### Import your own private key
 ```go
