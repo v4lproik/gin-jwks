@@ -1,0 +1,42 @@
+version: 2
+
+jobs:
+  build:
+    machine: true
+    working_directory: /home/circleci/.go_workspace/src/github.com/v4lproik/gin-jwks
+    environment:
+      #container variables
+      GOPATH: "/home/circleci/.go_workspace"
+      GODIST: "go1.18.3.linux-amd64.tar.gz"
+
+    steps:
+      - checkout
+
+      #try to cache docker images (activate when paid plans is enabled...)
+      #      - setup_remote_docker:
+      #          docker_layer_caching: true
+
+      - run:
+          name: Install golang
+          command: |
+            mkdir -p download
+            test -e download/$GODIST || curl -o download/$GODIST https://storage.googleapis.com/golang/$GODIST
+            sudo rm -rf /usr/local/go
+            sudo tar -C /usr/local -xzf download/$GODIST
+
+      #attempt to cache go deps
+      - restore_cache:
+          keys:
+            - go-mod-cache-v2-{{ arch }}-{{ .Branch }}-{{ checksum "go.mod" }}
+
+      - run:
+          name: Install dependencies & build
+          command: |
+            sudo chown -R $(id -u):$(id -g) $CIRCLE_WORKING_DIRECTORY
+            go mod tidy
+            go build
+
+      - save_cache:
+          key: go-mod-cache-v2-{{ arch }}-{{ .Branch }}-{{ checksum "go.mod" }}
+          paths:
+            - "/home/circleci/.go_workspace/pkg/mod"
