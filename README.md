@@ -21,7 +21,6 @@ func main() {
     r.Run()
 }
 ```
-Note that this method will be creating the public key based on the private key submitted.
 ### Generate a private key
 ```go
 func main() {
