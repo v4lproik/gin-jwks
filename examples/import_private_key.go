@@ -21,6 +21,6 @@ func main() {
 		return
 	}
 
-	r.GET("/", Jkws(*config))
+	r.GET("/.well-known/jwks.json", Jkws(*config))
 	r.Run()
 }
