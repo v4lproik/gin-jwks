@@ -1,4 +1,4 @@
-package main
+package gin_jwks
 
 import (
 	"crypto/rand"
