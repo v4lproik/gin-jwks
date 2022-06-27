@@ -15,9 +15,10 @@ func main() {
 
     if err != nil {
         fmt.Errorf("error generating conf %v", err)
+        return
     }
 
-    r.GET("/", Jkws(*config))
+    r.GET("/.well-known/jwks.json", Jkws(*config))
     r.Run()
 }
 ```
@@ -38,7 +39,7 @@ func main() {
         return
     }
 
-    r.GET("/", Jkws(*config))
+    r.GET("/.well-known/jwks.json", Jkws(*config))
     r.Run()
 }
 ```
