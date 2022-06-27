@@ -220,6 +220,12 @@ type JkwsResponse struct {
 // a jwt token
 func Jkws(config Config) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		if config.key == nil {
+			c.Error(fmt.Errorf("private key cannot be nil"))
+			c.AbortWithStatus(500)
+			return
+		}
+
 		// get private key and its properties
 		key := *config.key
 
