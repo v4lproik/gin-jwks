@@ -1,4 +1,4 @@
-package gin_jwks
+package gin_jwks_rsa
 
 import (
 	"crypto/rand"
