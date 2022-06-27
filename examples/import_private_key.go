@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	. "github.com/v4lproik/gin-jwks"
+	. "github.com/v4lproik/gin-jwks-rsa"
 )
 
 func main() {

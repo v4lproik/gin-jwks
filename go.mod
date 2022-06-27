@@ -1,4 +1,4 @@
-module github.com/v4lproik/gin-jwks
+module github.com/v4lproik/gin-jwks-rsa
 
 go 1.18
 
