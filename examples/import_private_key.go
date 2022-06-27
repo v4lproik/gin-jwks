@@ -18,6 +18,7 @@ func main() {
 
 	if err != nil {
 		fmt.Errorf("error generating conf %v", err)
+		return
 	}
 
 	r.GET("/", Jkws(*config))
